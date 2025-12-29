@@ -1,4 +1,4 @@
-export default async function pokemons(id) {
+export default async function fetchPokemons(id) {
   try {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const res = await fetch(url);
@@ -10,8 +10,7 @@ export default async function pokemons(id) {
       );
     }
 
-    const data = res.json();
-    return data;
+    return res.json();
   } catch (error) {
     console.error(error);
   }
