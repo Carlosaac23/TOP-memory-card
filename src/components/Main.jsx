@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import pokemons from '../lib/pokemons';
+import fetchPokemons from '../lib/fetch-pokemons';
 import { getRandomID } from '../utils';
 import Card from './Card';
 
@@ -10,7 +10,7 @@ export default function Main() {
     async function fetchPokemon() {
       for (let i = 0; i < 10; i++) {
         const randomID = getRandomID();
-        const randomPokemon = await pokemons(randomID);
+        const randomPokemon = await fetchPokemons(randomID);
         const {
           sprites: { front_default },
           name,
