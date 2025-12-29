@@ -2,9 +2,15 @@ import { capitalize } from '../utils';
 
 export default function Card({ imageURL, pokemonName }) {
   return (
-    <div className='rounded-md border border-neutral-700 p-2'>
-      <img src={imageURL} alt='' />
-      <h2>{capitalize(pokemonName)}</h2>
+    <div className='flex min-h-60 min-w-64 flex-col justify-between rounded-md border-2 border-neutral-700 p-2 shadow-md transition-transform duration-150 hover:scale-105 hover:cursor-pointer'>
+      <img
+        className='rounded-sm border bg-neutral-200'
+        src={imageURL}
+        alt='Pokemon image'
+      />
+      <h2 className='text-center text-xl tracking-wide'>
+        {capitalize(pokemonName)}
+      </h2>
     </div>
   );
 }
