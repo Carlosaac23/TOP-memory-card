@@ -8,7 +8,7 @@ export default function Main() {
 
   useEffect(() => {
     async function fetchPokemon() {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 6; i++) {
         const randomID = getRandomID();
         const randomPokemon = await fetchPokemons(randomID);
         const {
@@ -29,7 +29,11 @@ export default function Main() {
 
   return (
     <section>
-      <div className='flex flex-wrap gap-2 p-4'>
+      <div className='px-4 pt-3 text-xl'>
+        <p>Score:</p>
+        <p>Best Score:</p>
+      </div>
+      <div className='flex flex-wrap justify-center gap-6 p-4'>
         {objects.map(({ id, pokemonName, imageURL }) => {
           return (
             <Card key={id} imageURL={imageURL} pokemonName={pokemonName} />
