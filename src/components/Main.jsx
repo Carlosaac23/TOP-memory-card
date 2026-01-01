@@ -54,7 +54,7 @@ export default function Main() {
         {objects.map(({ pokemonName, imageURL }) => {
           return (
             <Card
-              onClick={handleCardClick}
+              handleClick={handleCardClick}
               key={pokemonName}
               imageURL={imageURL}
               pokemonName={pokemonName}

@@ -1,9 +1,9 @@
 import { capitalize } from '../utils';
 
-export default function Card({ imageURL, pokemonName, onClick }) {
+export default function Card({ imageURL, pokemonName, handleClick }) {
   return (
     <div
-      onClick={() => onClick(pokemonName)}
+      onClick={() => handleClick(pokemonName)}
       className='flex min-h-60 min-w-64 flex-col justify-between rounded-md border-2 border-neutral-700 p-2 shadow-md transition-transform duration-150 hover:scale-105 hover:cursor-pointer'
     >
       <img
