@@ -14,12 +14,11 @@ export default function Main() {
         const {
           sprites: { front_default },
           name,
-          id,
         } = randomPokemon;
 
         setObjects((prevURLs) => [
           ...prevURLs,
-          { id, pokemonName: name, imageURL: front_default },
+          { pokemonName: name, imageURL: front_default },
         ]);
       }
     }
@@ -34,9 +33,13 @@ export default function Main() {
         <p>Best Score:</p>
       </div>
       <div className='flex flex-wrap justify-center gap-6 p-4'>
-        {objects.map(({ id, pokemonName, imageURL }) => {
+        {objects.map(({ pokemonName, imageURL }) => {
           return (
-            <Card key={id} imageURL={imageURL} pokemonName={pokemonName} />
+            <Card
+              key={pokemonName}
+              imageURL={imageURL}
+              pokemonName={pokemonName}
+            />
           );
         })}
       </div>
