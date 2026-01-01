@@ -36,9 +36,13 @@ export default function Main() {
 
     if (pokemonId === lastCard) {
       setScore(0);
-      setBestScore(score);
       setLastCard(null);
       setObjects(newObjects);
+
+      if (score > bestScore) {
+        setBestScore(score);
+      }
+
       return;
     }
 
