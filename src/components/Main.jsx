@@ -7,7 +7,9 @@ import Card from './Card';
 export default function Main() {
   const [objects, setObjects] = useState([]);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [lastCard, setLastCard] = useState('');
+  console.log(objects);
 
   useEffect(() => {
     async function fetchPokemon() {
@@ -34,12 +36,13 @@ export default function Main() {
 
     if (pokemonName === lastCard) {
       setScore(0);
+      setBestScore(score);
       setLastCard('');
       setObjects(newObjects);
       return;
     }
 
-    setScore((prevCounter) => prevCounter + 1);
+    setScore((prevScore) => prevScore + 1);
     setLastCard(pokemonName);
     setObjects(newObjects);
   }
@@ -48,7 +51,7 @@ export default function Main() {
     <section>
       <div className='px-4 pt-3 text-xl tracking-wide'>
         <p>Score: {score}</p>
-        <p>Best Score:</p>
+        <p>Best Score: {bestScore}</p>
       </div>
       <div className='flex flex-wrap justify-center gap-6 p-4'>
         {objects.map(({ pokemonName, imageURL }) => {
