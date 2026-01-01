@@ -6,7 +6,7 @@ import Card from './Card';
 
 export default function Main() {
   const [objects, setObjects] = useState([]);
-  const [counter, setCounter] = useState(0);
+  const [score, setScore] = useState(0);
   const [lastCard, setLastCard] = useState('');
 
   useEffect(() => {
@@ -33,13 +33,13 @@ export default function Main() {
     const newObjects = shuffle([...objects]);
 
     if (pokemonName === lastCard) {
-      setCounter(0);
+      setScore(0);
       setLastCard('');
       setObjects(newObjects);
       return;
     }
 
-    setCounter((prevCounter) => prevCounter + 1);
+    setScore((prevCounter) => prevCounter + 1);
     setLastCard(pokemonName);
     setObjects(newObjects);
   }
@@ -47,7 +47,7 @@ export default function Main() {
   return (
     <section>
       <div className='px-4 pt-3 text-xl tracking-wide'>
-        <p>Score: {counter}</p>
+        <p>Score: {score}</p>
         <p>Best Score:</p>
       </div>
       <div className='flex flex-wrap justify-center gap-6 p-4'>
