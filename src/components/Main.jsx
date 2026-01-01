@@ -8,8 +8,7 @@ export default function Main() {
   const [objects, setObjects] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [lastCard, setLastCard] = useState('');
-  console.log(objects);
+  const [lastCard, setLastCard] = useState(null);
 
   useEffect(() => {
     async function fetchPokemon() {
@@ -19,11 +18,12 @@ export default function Main() {
         const {
           sprites: { front_default },
           name,
+          id,
         } = randomPokemon;
 
         setObjects((prevURLs) => [
           ...prevURLs,
-          { pokemonName: name, imageURL: front_default },
+          { id, pokemonName: name, imageURL: front_default },
         ]);
       }
     }
@@ -31,19 +31,19 @@ export default function Main() {
     fetchPokemon();
   }, []);
 
-  function handleCardClick(pokemonName) {
+  function handleCardClick(pokemonId) {
     const newObjects = shuffle([...objects]);
 
-    if (pokemonName === lastCard) {
+    if (pokemonId === lastCard) {
       setScore(0);
       setBestScore(score);
-      setLastCard('');
+      setLastCard(null);
       setObjects(newObjects);
       return;
     }
 
     setScore((prevScore) => prevScore + 1);
-    setLastCard(pokemonName);
+    setLastCard(pokemonId);
     setObjects(newObjects);
   }
 
@@ -54,11 +54,12 @@ export default function Main() {
         <p>Best Score: {bestScore}</p>
       </div>
       <div className='flex flex-wrap justify-center gap-6 p-4'>
-        {objects.map(({ pokemonName, imageURL }) => {
+        {objects.map(({ id, pokemonName, imageURL }) => {
           return (
             <Card
+              id={id}
               handleClick={handleCardClick}
-              key={pokemonName}
+              key={id}
               imageURL={imageURL}
               pokemonName={pokemonName}
             />
