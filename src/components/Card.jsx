@@ -1,5 +1,3 @@
-import { capitalize } from '../utils';
-
 export default function Card(props) {
   const { id, pokemonName, imageURL, handleClick } = props;
 
@@ -13,8 +11,8 @@ export default function Card(props) {
         src={imageURL}
         alt='Pokemon image'
       />
-      <h2 className='text-center text-xl tracking-wide'>
-        {capitalize(pokemonName)}
+      <h2 className='text-center text-xl tracking-wide capitalize'>
+        {pokemonName}
       </h2>
     </div>
   );
