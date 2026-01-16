@@ -17,17 +17,15 @@ export default function Main() {
       <div className='flex flex-wrap justify-center gap-6 p-4'>
         {isLoading && <BeatLoader color='#404040' />}
         {pokemons &&
-          pokemons.map(({ id, name, sprites: { front_default } }) => {
-            return (
-              <Card
-                id={id}
-                handleClick={handleCardClick}
-                key={id}
-                imageURL={front_default}
-                pokemonName={name}
-              />
-            );
-          })}
+          pokemons.map(({ id, name, sprites: { front_default } }) => (
+            <Card
+              id={id}
+              handleClick={handleCardClick}
+              key={id}
+              imageURL={front_default}
+              pokemonName={name}
+            />
+          ))}
       </div>
     </section>
   );
