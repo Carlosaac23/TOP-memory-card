@@ -1,6 +1,4 @@
-export default function Card(props) {
-  const { id, pokemonName, imageURL, handleClick } = props;
-
+export default function Card({ id, pokemonName, imageURL, handleClick }) {
   return (
     <div
       onClick={() => handleClick(id)}
