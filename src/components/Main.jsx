@@ -1,8 +1,7 @@
 import { BeatLoader } from 'react-spinners';
 
-import { usePokemons } from '../hooks/usePokemons';
-
-import Card from './Card';
+import Card from '@/components/Card';
+import { usePokemons } from '@/hooks/usePokemons';
 
 export default function Main() {
   const { pokemons, score, bestScore, handleCardClick, isLoading } =

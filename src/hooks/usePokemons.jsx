@@ -1,8 +1,8 @@
 import { shuffle } from 'lodash';
 import { useEffect, useState } from 'react';
 
-import fetchPokemon from '../lib/fetch-pokemon';
-import { getRandomID } from '../utils';
+import fetchPokemon from '@/lib/fetch-pokemon';
+import { getRandomID } from '@/utils';
 
 function usePokemons() {
   const [pokemons, setPokemons] = useState([]);
