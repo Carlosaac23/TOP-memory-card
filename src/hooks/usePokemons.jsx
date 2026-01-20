@@ -12,7 +12,7 @@ function usePokemons() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const copyPokemons = [];
 
@@ -34,12 +34,12 @@ function usePokemons() {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchData();
   }, []);
 
-  function handleCardClick(pokemonId) {
+  const handleCardClick = pokemonId => {
     const newPokemons = shuffle([...pokemons]);
 
     if (pokemonId === lastCard) {
@@ -57,7 +57,7 @@ function usePokemons() {
     setScore(prevScore => prevScore + 1);
     setLastCard(pokemonId);
     setPokemons(newPokemons);
-  }
+  };
 
   return { pokemons, score, bestScore, handleCardClick, isLoading };
 }
